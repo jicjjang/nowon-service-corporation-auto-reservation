@@ -1,0 +1,4 @@
+.env
+build
+tsconfig.tsbuildinfo
+node_modules
