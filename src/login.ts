@@ -10,9 +10,11 @@ const getSessionId = (setCookieHeader?: { [key: string]: any }) => {
 
 const loginInfoSetCookies = (sessionId?: string) => {
   if (sessionId) {
-    api.defaults.headers[
-      "cookies"
-    ] = `${api.defaults.headers["cookies"]}; ids=${process.env.USER_ID}; JSESSIONID=${sessionId}`;
+    api.defaults.headers["cookies"] = `${
+      api.defaults.headers["cookies"]
+        ? `${api.defaults.headers["cookies"]}; `
+        : ""
+    }ids=${process.env.USER_ID}; JSESSIONID=${sessionId}`;
   }
 };
 
