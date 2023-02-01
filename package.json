@@ -4,8 +4,10 @@
   "description": "",
   "main": "./src/index.js",
   "scripts": {
-    "dev": "mkdir -p build && env-cmd yarn tsc -p ./tsconfig.json --watch && cp .env ./build/.env",
-    "build": "rm -rf ./build && rm -rf ./tsconfig.tsbuildinfo && mkdir build && env-cmd yarn tsc -p ./tsconfig.json",
+    "dev": "yarn tsc:watch",
+    "build": "rm -rf ./build ./tsconfig.tsbuildinfo && yarn tsc:build",
+    "tsc:watch": "env-cmd yarn tsc -p ./tsconfig.json --watch",
+    "tsc:build": "env-cmd yarn tsc -p ./tsconfig.json",
     "start": "env-cmd node ./build/index.js"
   },
   "author": "jed <jicjjang12@gmail.com>",
